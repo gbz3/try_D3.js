@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>D3.js Tutorial</title>
+    <script src="lib/d3.v5.min.js"></script>
+  </head>
+  <body>
+    <!-- D3.js v4/v5 入門  https://wizardace.com/ -->
+    <svg id="target"></svg>
+  </body>
+  <script>
+    var target = d3.select( "#target" ).attr( "width", 500 ).attr( "height", 100 );
+    var dataset = [ [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
+    	             [410, 12], [475, 44], [25, 67], [85, 21], [220, 88] ];
+
+    target.selectAll( "circle" ).data( dataset )
+      .enter().append( "circle" )
+        .attr( "cx", d => d[0] )
+        .attr( "cy", d => d[1] )
+        .attr( "r", 4 );
+
+    target.selectAll( "text" ).data( dataset )
+      .enter().append( "text" )
+        .attr( "x", d => d[0] )
+        .attr( "y", d => d[1] )
+        .attr( "fill", "red" )
+        .text( d => d[0] + "," + d[1] );
+  </script>
+</html>
