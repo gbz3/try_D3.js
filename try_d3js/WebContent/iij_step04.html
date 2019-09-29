@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>D3.js example</title>
+    <script src="lib/d3.v5.min.js"></script>
+  </head>
+  <body>
+    <div id="target">
+    </div>
+  </body>
+  <script>
+    var data = ["red", "blue", "green"];
+    var target = d3.select( "#target" ).selectAll( "p" ).data( data );
+
+    target.enter().append( "p" )
+      .text( function(d){ return "color: " + d; } )
+      .style( "color", function(d){ return d; } );
+  </script>
+</html>
